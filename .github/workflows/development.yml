@@ -13,7 +13,7 @@ env:
   ORCH_URL: https://cloud.uipath.com/auxilzfwquao/
   ORCH_TENANT: Atul008
   ORCH_CLIENT_ID: 8DEv1AMNXczW3y4U15LL3jYf62jK93n5
-  ORCH_USER_KEY: wGf3IWgDN61YGKcS_RiyTS9mD-pjcKxg-ZM51MewYI0Nh
+  ORCH_USER_KEY: fIP1DoBRaYGcipXdsbIIlTFmP8sz1agLdpS8ytra6PbV-
   ORCH_ACC_NAME: auxilzfwquao
 
 jobs:
@@ -67,4 +67,4 @@ jobs:
           name: Artifacts
       - name: Publish Nuget Package to Default
         shell: pwsh
-        run: ${{ github.workspace }}\scripts\UiPathDeploy.ps1 ${{ github.workspace }}\package ${{env.ORCH_URL}} ${{env.ORCH_TENANT}} -UserKey wGf3IWgDN61YGKcS_RiyTS9mD-pjcKxg-ZM51MewYI0Nh -account_name auxilzfwquao
+        run: ${{ github.workspace }}\scripts\UiPathDeploy.ps1 ${{ github.workspace }}\package ${{env.ORCH_URL}} ${{env.ORCH_TENANT}} -UserKey fIP1DoBRaYGcipXdsbIIlTFmP8sz1agLdpS8ytra6PbV- -account_name auxilzfwquao
