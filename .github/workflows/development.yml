@@ -10,11 +10,11 @@ env:
   # Replace with your Orchestrator Values 
   PROJECT_NAME: uipath.github.action                         
   PROJECT_FOLDER: ${{ github.action_path }}
-  ORCH_URL: ${{ secrets.ORCH_URL }}
-  ORCH_TENANT: ${{ secrets.ORCH_TENANT }}
-  ORCH_CLIENT_ID: ${{ secrets.ORCH_CLIENT_ID }}
-  ORCH_USER_KEY: ${{ secrets.ORCH_USER_KEY }}
-  ORCH_ACC_NAME: ${{ secrets.ORCH_ACC_NAME }}
+  ORCH_URL: https://cloud.uipath.com/auxilzfwquao/
+  ORCH_TENANT: Atul008
+  ORCH_CLIENT_ID: 8DEv1AMNXczW3y4U15LL3jYf62jK93n5
+  ORCH_USER_KEY: wGf3IWgDN61YGKcS_RiyTS9mD-pjcKxg-ZM51MewYI0Nh
+  ORCH_ACC_NAME: auxilzfwquao
 
 jobs:
   print-details:
@@ -67,7 +67,7 @@ jobs:
           name: Artifacts
       - name: Publish Nuget Package to Default
         shell: pwsh
-        run: ${{ github.workspace }}\scripts\UiPathDeploy.ps1 ${{ github.workspace }}\package ${{env.ORCH_URL}} ${{env.ORCH_TENANT}} -UserKey xrvytEEOfnxBk_qLc73kZldbNxy50G8OsCXoca3ZHUZho -account_name auxilzfwquao
+        run: ${{ github.workspace }}\scripts\UiPathDeploy.ps1 ${{ github.workspace }}\package ${{env.ORCH_URL}} ${{env.ORCH_TENANT}} -UserKey wGf3IWgDN61YGKcS_RiyTS9mD-pjcKxg-ZM51MewYI0Nh -account_name auxilzfwquao
    
   test-uipath-published-package:
     needs: publish-uipath-nuget-package
