@@ -30,7 +30,7 @@ jobs:
   publish-uipath-nuget-package:
     # You should be able to run on windows 2019 or windows latest
     runs-on: windows-latest
-    environment: PRD
+    environment: Default
     env:
       # Replace with your Orchestrator Values for Production
       PROJECT_NAME: GitHub_Uipath_Example                         
