@@ -6,8 +6,7 @@ on:
       - develop
 
 # Here the environment variable is declared in workflow level
-environment: Default
-env:
+env: Default
   # Replace with your Orchestrator Values 
   PROJECT_NAME: uipath.github.action                         
   PROJECT_FOLDER: ${{ github.action_path }}
