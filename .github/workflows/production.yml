@@ -3,7 +3,7 @@ name: Production workflow
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   print-details:
@@ -27,6 +27,24 @@ jobs:
         run: |
           echo "Cleaning up previous run"
           rm -rf "${{ github.workspace }}"
+  build-uipath-nuget-package:
+    # You should be able to run on windows 2019 or windows latest
+    needs: cleaner
+    runs-on: windows-latest
+    steps: 
+      - name: Check out repository code
+        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        uses: actions/checkout@v2
+      - name: Build Nuget Package
+        shell: pwsh
+        run: ${{ github.workspace }}\scripts\UiPathPack.ps1 ${{ github.workspace }}\project.json -destination_folder ${{ github.workspace }}\package
+      - name: Upload UiPath Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Artifacts
+          path: |
+           package/*.*
+           scripts/*.ps1        
   publish-uipath-nuget-package:
     # You should be able to run on windows 2019 or windows latest
     runs-on: windows-latest
