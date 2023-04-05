@@ -10,11 +10,11 @@ env:
   # Replace with your Orchestrator Values 
   PROJECT_NAME: uipath.github.action                         
   PROJECT_FOLDER: ${{ github.action_path }}
-  ORCH_URL: ${{ secrets.ORCH_URL }}
-  ORCH_TENANT: ${{ secrets.ORCH_TENANT }}
-  ORCH_CLIENT_ID: ${{ secrets.ORCH_CLIENT_ID }}
-  ORCH_USER_KEY: ${{ secrets.ORCH_USER_KEY }}
-  ORCH_ACC_NAME: ${{ secrets.ORCH_ACC_NAME }}
+  ORCH_URL: https://cloud.uipath.com/auxilzfwquao/
+  ORCH_TENANT: Atul008
+  ORCH_CLIENT_ID: 8DEv1AMNXczW3y4U15LL3jYf62jK93n5
+  ORCH_USER_KEY: SaUz5Vp2mE7qt-HIH90ylFaDRUkUXAOBdxVEm9nDrJcTH
+  ORCH_ACC_NAME: auxilzfwquao
 
 jobs:
   print-details:
@@ -38,9 +38,6 @@ jobs:
         run: |
           echo "Cleaning up previous run"
           rm -rf "${{ github.workspace }}"
-   # Create Pull Request for Merge & Review
-  create-pull-request:
-    needs: cleaner
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -48,8 +45,7 @@ jobs:
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
-          destination_branch: "master"
+          destination_branch: "main"
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_label: "feature, automated pr"
           pr_title: "Pull Request From Github Action"
- 
