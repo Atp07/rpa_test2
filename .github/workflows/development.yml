@@ -6,6 +6,16 @@ on:
       - develop
 
 # Here the environment variable is declared in workflow level
+environment: Default
+env:
+  # Replace with your Orchestrator Values 
+  PROJECT_NAME: uipath.github.action                         
+  PROJECT_FOLDER: ${{ github.action_path }}
+  ORCH_URL: https://cloud.uipath.com/auxilzfwquao/
+  ORCH_TENANT: Atul008
+  ORCH_CLIENT_ID: 8DEv1AMNXczW3y4U15LL3jYf62jK93n5
+  ORCH_USER_KEY: SaUz5Vp2mE7qt-HIH90ylFaDRUkUXAOBdxVEm9nDrJcTH
+  ORCH_ACC_NAME: auxilzfwquao
 
 jobs:
   print-details:
@@ -62,5 +72,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_label: "feature, automated pr"
           pr_title: "Pull Request From Github Action"
-          
   
