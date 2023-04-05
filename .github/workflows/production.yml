@@ -27,6 +27,7 @@ jobs:
         run: |
           echo "Cleaning up previous run"
           rm -rf "${{ github.workspace }}"
+
   build-uipath-nuget-package:
     # You should be able to run on windows 2019 or windows latest
     needs: cleaner
@@ -44,7 +45,8 @@ jobs:
           name: Artifacts
           path: |
            package/*.*
-           scripts/*.ps1        
+           scripts/*.ps1 
+
   publish-uipath-nuget-package:
     # You should be able to run on windows 2019 or windows latest
     runs-on: windows-latest
@@ -53,7 +55,7 @@ jobs:
       # Replace with your Orchestrator Values for Production
       PROJECT_NAME: GitHub_Uipath_Example                         
       PROJECT_FOLDER: ${{ github.action_path }}
-      ORCH_URL: https://cloud.uipath.com/RPABOTSWORLD/PRD
+      ORCH_URL: ${{env.ORCH_URL}}
       ORCH_TENANT: ${{ secrets.UIPATHTENANTNAME }}
       ORCH_CLIENT_ID: ${{ secrets.UIPATHCLIENTID }}
       ORCH_USER_KEY: ${{ secrets.UIPATHUSERKEY }}
