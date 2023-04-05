@@ -54,11 +54,11 @@ jobs:
       # Replace with your Orchestrator Values for Production
       PROJECT_NAME: GitHub_Uipath_Example                         
       PROJECT_FOLDER: ${{ github.action_path }}
-      ORCH_URL: '${{secrets.ORCH_URL}}'
-      ORCH_TENANT: '${{ secrets.UIPATHTENANTNAME }}'
-      ORCH_CLIENT_ID: '${{ secrets.UIPATHCLIENTID }}'
-      ORCH_USER_KEY: '${{ secrets.UIPATHUSERKEY }}'
-      ORCH_ACC_NAME: '${{ secrets.UIPATHACCOUNTNAME }}'
+      ORCH_URL: https://cloud.uipath.com/auxilzfwquao/
+      ORCH_TENANT: Atul008
+      ORCH_CLIENT_ID: 8DEv1AMNXczW3y4U15LL3jYf62jK93n5
+      ORCH_USER_KEY: SaUz5Vp2mE7qt-HIH90ylFaDRUkUXAOBdxVEm9nDrJcTH
+      ORCH_ACC_NAME: auxilzfwquao
     steps: 
       - name: Check out repository code
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
